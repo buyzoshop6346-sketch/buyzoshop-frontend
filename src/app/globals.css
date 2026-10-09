@@ -1,0 +1,385 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-button-hover-1-foreground: var(--button-hover-1-foreground);
+  --color-button-hover-1: var(--button-hover-1);
+
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+
+  --color-destructive: var(--destructive);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-title: var(--title);
+  --color-subtitle: var(--subtitle);
+  --color-body: var(--body);
+  --color-hover-text: var(--hover-text);
+
+  --color-button: var(--button);
+  --color-button-hover: var(--button-hover);
+  --color-button-text: var(--button-text);
+
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+}
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root {
+  /* ==========================
+     Brand Colors
+  ========================== */
+
+  --primary: #0f1f5a;
+  --primary-hover: #1b347d;
+  --primary-active: #29458f;
+  --primary-light: #eef2ff;
+
+  --primary-foreground: #ffffff;
+
+  /* ==========================
+     Background
+  ========================== */
+
+  --background: #ffffff;
+  --foreground: #111827;
+
+  --card: #ffffff;
+  --card-foreground: #111827;
+
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+
+  /* ==========================
+     Secondary
+  ========================== */
+
+  --secondary: #f4f6ff;
+  --secondary-foreground: #172554;
+
+  --muted: #f1f4fb;
+  --muted-foreground: #64748b;
+
+  /* ==========================
+     Accent
+  ========================== */
+
+  --accent: #eef2ff;
+  --accent-foreground: #0f1f5a;
+
+  /* ==========================
+     Border & Input
+  ========================== */
+
+  --border: #dbe2f0;
+  --input: #dbe2f0;
+
+  /* ==========================
+     Focus Ring
+  ========================== */
+
+  --ring: #0f1f5a;
+
+  /* ==========================
+     Status
+  ========================== */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --destructive: #ef4444;
+  --info: #3b82f6;
+
+  /* ==========================
+     Radius
+  ========================== */
+
+  --radius: 0.75rem;
+
+  /* ==========================
+     Charts
+  ========================== */
+
+  --chart-1: #0f1f5a;
+  --chart-2: #1b347d;
+  --chart-3: #29458f;
+  --chart-4: #4162aa;
+  --chart-5: #6683c5;
+
+  /* ==========================
+     Sidebar
+  ========================== */
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+
+  --sidebar-primary: #0f1f5a;
+  --sidebar-primary-foreground: #ffffff;
+
+  --button-hover-1: #eef2ff;
+  --button-hover-1-foreground: #0f1f5a;
+
+  --hover: #eef2ff;
+
+  --sidebar-border: #dbe2f0;
+  --sidebar-ring: #0f1f5a;
+
+  /* ==========================
+     Typography
+  ========================== */
+
+  --title: #0f1f5a;
+  --subtitle: #1b347d;
+  --hover-text: #1b347d;
+  --body: #64748b;
+
+  /* ==========================
+     Buttons
+  ========================== */
+
+  --button: #0f1f5a;
+  --button-hover: #1b347d;
+  --button-text: #ffffff;
+
+  /* ==========================
+     Links
+  ========================== */
+
+  --link: #0f1f5a;
+  --link-hover: #1b347d;
+
+  /* ==========================
+     Gradients
+  ========================== */
+
+  --gradient-primary: linear-gradient(135deg, #0f1f5a 0%, #1b347d 100%);
+
+  --gradient-secondary: linear-gradient(135deg, #1b347d 0%, #4162aa 100%);
+
+  --gradient-dark: linear-gradient(135deg, #0f1f5a 0%, #29458f 100%);
+}
+
+/* =========================================================
+   GRADIENT UTILITIES
+========================================================= */
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: linear-gradient(135deg, #0f1f5a 0%, #1b347d 100%);
+  }
+
+  .bg-gradient-secondary {
+    background-image: linear-gradient(135deg, #1b347d 0%, #4162aa 100%);
+  }
+
+  .bg-gradient-dark {
+    background-image: linear-gradient(135deg, #0f1f5a 0%, #29458f 100%);
+  }
+}
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+.dark {
+  --background: #080d20;
+  --foreground: #f8fafc;
+
+  --card: #0d142b;
+  --card-foreground: #f8fafc;
+
+  --popover: #0d142b;
+  --popover-foreground: #f8fafc;
+
+  /* ==========================
+     Brand
+  ========================== */
+
+  --primary: #29458f;
+  --primary-hover: #4162aa;
+  --primary-active: #5273ba;
+
+  --primary-light: rgba(41, 69, 143, 0.16);
+
+  --primary-foreground: #ffffff;
+
+  /* ==========================
+     Secondary
+  ========================== */
+
+  --secondary: #121b38;
+  --secondary-foreground: #f8fafc;
+
+  --muted: #121b38;
+  --muted-foreground: #aab5d0;
+
+  /* ==========================
+     Accent
+  ========================== */
+
+  --accent: #18264c;
+  --accent-foreground: #8ea7e0;
+
+  /* ==========================
+     Border & Input
+  ========================== */
+
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.09);
+
+  /* ==========================
+     Ring
+  ========================== */
+
+  --ring: #4162aa;
+
+  /* ==========================
+     Sidebar
+  ========================== */
+
+  --sidebar: #0d142b;
+  --sidebar-foreground: #f8fafc;
+
+  --sidebar-primary: #29458f;
+  --sidebar-primary-foreground: #ffffff;
+
+  --button-hover-1: #18264c;
+  --button-hover-1-foreground: #8ea7e0;
+
+  --sidebar-border: rgba(255, 255, 255, 0.09);
+  --sidebar-ring: #4162aa;
+
+  /* ==========================
+     Typography
+  ========================== */
+
+  --title: #8ea7e0;
+  --subtitle: #6683c5;
+  --hover-text: #a9bde9;
+  --body: #aab5d0;
+
+  /* ==========================
+     Buttons
+  ========================== */
+
+  --button: #29458f;
+  --button-hover: #4162aa;
+  --button-text: #ffffff;
+
+  /* ==========================
+     Links
+  ========================== */
+
+  --link: #8ea7e0;
+  --link-hover: #a9bde9;
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+/* =========================================================
+   SWIPER PAGINATION
+========================================================= */
+
+.swiper-pagination-bullet {
+  background: #b8c4e2;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0f1f5a !important;
+  width: 20px;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f1f5a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1b347d;
+}
