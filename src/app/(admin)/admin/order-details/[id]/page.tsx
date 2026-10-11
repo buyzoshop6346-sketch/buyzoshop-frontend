@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 
 import OrderActions from '../OrderActions';
-import { Order, OrderItem } from '@/types/orders';
-import { FaWhatsapp } from 'react-icons/fa';
+import { Order } from '@/types/orders';
 import { HistoryStat } from '../HistoryStat';
+import OrderDetailsClient from '@/components/layouts/admin/order-details/customar-info/OrderDetailsClient';
+import OrderItems from '@/components/layouts/admin/order-details/order-items/OrderItems';
 
 interface OrderDetailsPageProps {
   params: Promise<{
@@ -125,132 +125,10 @@ const OrderDetailsPage = async ({ params }: OrderDetailsPageProps) => {
         )}
 
         {/* Customer Information */}
-        <section className="mt-6 rounded-sm border bg-background p-5">
-          <h2 className="mb-4 text-lg font-semibold">Customer Information</h2>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <InfoItem
-              label="Name"
-              value={order.name || order.user?.name || '-'}
-            />
-
-            <InfoItem label="Email" value={order.user?.email || '-'} />
-
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Phone</p>
-
-              <a
-                href={`https://wa.me/${order.phone.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-green-600 transition-colors hover:text-green-700 hover:underline"
-              >
-                <FaWhatsapp className="h-5 w-5" />
-                <span>{order.phone}</span>
-              </a>
-            </div>
-
-            <InfoItem label="District (Zila)" value={order.district || '-'} />
-
-            <InfoItem label="Thana / Upazila" value={order.thana || '-'} />
-
-            <InfoItem label="Address" value={order.address || '-'} />
-          </div>
-
-          <div className="mt-5 border-t pt-4">
-            <p className="text-sm font-medium">Order Notes</p>
-
-            <p className="mt-1 text-sm text-muted-foreground">
-              {order.note || 'No notes provided'}
-            </p>
-          </div>
-        </section>
+        <OrderDetailsClient order={order} />
 
         {/* Order Items */}
-        <section className="mt-6 rounded-sm border bg-background">
-          <div className="border-b p-5">
-            <h2 className="text-lg font-semibold">Order Items</h2>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[900px] text-sm">
-              <thead className="border-b bg-muted/40">
-                <tr>
-                  <th className="px-5 py-3 text-left">Product</th>
-
-                  <th className="px-5 py-3 text-left">Color</th>
-
-                  <th className="px-5 py-3 text-left">Size</th>
-
-                  <th className="px-5 py-3 text-center">Quantity</th>
-
-                  <th className="px-5 py-3 text-right">Price</th>
-
-                  <th className="px-5 py-3 text-right">Subtotal</th>
-
-                  <th className="px-5 py-3 text-center">Current Stock</th>
-                </tr>
-              </thead>
-
-              <tbody className="divide-y">
-                {order.items?.map((item: OrderItem) => {
-                  const productPrice =
-                    item.product?.specialPrice ??
-                    item.product?.price ??
-                    item.price;
-
-                  const subtotal = productPrice * item.quantity;
-
-                  return (
-                    <tr key={item.id}>
-                      <td className="px-5 py-4">
-                        <div className="flex items-center gap-3">
-                          {item.product?.thumbnail && (
-                            <Image
-                              src={item.product.thumbnail}
-                              alt={item.name}
-                              width={48}
-                              height={48}
-                              className="h-12 w-12 rounded-sm border object-cover"
-                            />
-                          )}
-
-                          <div>
-                            <p className="max-w-[300px] font-medium">
-                              {item.name}
-                            </p>
-
-                            <p className="text-xs text-muted-foreground">
-                              {item.product?.brand || '-'}
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td className="px-5 py-4">{item.color || '-'}</td>
-
-                      <td className="px-5 py-4">{item.size || '-'}</td>
-
-                      <td className="px-5 py-4 text-center">{item.quantity}</td>
-
-                      <td className="px-5 py-4 text-right">
-                        ৳{productPrice.toLocaleString()}
-                      </td>
-
-                      <td className="px-5 py-4 text-right font-medium">
-                        ৳{subtotal.toLocaleString()}
-                      </td>
-
-                      <td className="px-5 py-4 text-center">
-                        {item.product?.stock ?? '-'}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
+        <OrderItems order={order} />
 
         {/* Payment & Shipping */}
         <section className="mt-6 rounded-sm border bg-background p-5">

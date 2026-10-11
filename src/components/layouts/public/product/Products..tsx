@@ -9,7 +9,7 @@ const Products = async () => {
   const products = response?.data?.data || [];
 
   return (
-    <div className="w-full  bg-white">
+    <div className="w-full  bg-white py-5 md:pb-10">
       <div className="container mx-auto md:px-0">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8">
           <div>

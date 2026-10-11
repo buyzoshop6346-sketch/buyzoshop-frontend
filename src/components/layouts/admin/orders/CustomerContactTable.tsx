@@ -18,8 +18,8 @@ import { useState } from 'react';
 import { Order, OrdersMeta, OrderStatus } from '@/types/orders';
 
 import LoadingSpinner from '../shared/dashboard/LoadingSpinner';
-import EditOrderModal from './EditOrderModal';
 import OrderNoteModal from './OrderNoteModal';
+import Link from 'next/link';
 
 interface CustomerContactTableProps {
   orders: Order[];
@@ -59,8 +59,6 @@ const CustomerContactTable = ({
   loading = false,
 }: CustomerContactTableProps) => {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
-
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
 
@@ -459,20 +457,17 @@ const CustomerContactTable = ({
 
                     <td className="px-2 py-3 text-center align-top">
                       <div className="flex items-center justify-center gap-1">
-                        {/* EDIT */}
-
-                        <button
-                          type="button"
-                          disabled={isDeleting || isUpdating}
-                          onClick={() => {
-                            setSelectedOrder(order);
-                            setIsEditModalOpen(true);
-                          }}
-                          title="Edit order"
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-sm border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
-                        >
-                          <Pencil className="h-3.5 w-3.5" />
-                        </button>
+                        {/* view */}
+                        <Link href={`/admin/order-details/${order.id}`}>
+                          <button
+                            type="button"
+                            disabled={isDeleting || isUpdating}
+                            title="View order"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-sm border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            <Pencil className="h-3.5 w-3.5" />
+                          </button>
+                        </Link>
 
                         {/* NOTE */}
 
@@ -517,15 +512,6 @@ const CustomerContactTable = ({
       {/* =================================================
           EDIT MODAL
       ================================================= */}
-
-      {selectedOrder && (
-        <EditOrderModal
-          open={isEditModalOpen}
-          onOpenChange={setIsEditModalOpen}
-          order={selectedOrder}
-          fetchOrders={fetchOrders}
-        />
-      )}
 
       {/* =================================================
           NOTE MODAL

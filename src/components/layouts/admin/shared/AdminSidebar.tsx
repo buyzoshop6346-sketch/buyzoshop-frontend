@@ -18,6 +18,8 @@ import {
 import { BiSolidCategory } from 'react-icons/bi';
 import Image from 'next/image';
 import { FaFileInvoice } from 'react-icons/fa';
+import { MdBlock } from 'react-icons/md';
+
 // import {
 //   Building2,
 //   UserRound,
@@ -56,12 +58,17 @@ const AdminSidebar = ({
       href: '/admin/analytics',
       icon: ChartNoAxesCombined,
     },
-    {
-      name: 'Hero Management',
-      href: '/admin/hero-management',
-      icon: NotebookPen,
-    },
+    // {
+    //   name: 'Hero Management',
+    //   href: '/admin/hero-management',
+    //   icon: NotebookPen,
+    // },
     { name: 'Customers', href: '/admin/users', icon: Users },
+    {
+      name: 'Blocked Customers',
+      href: '/admin/blocked-customers',
+      icon: MdBlock,
+    },
     {
       name: 'Category Management',
       href: '/admin/category-management',
