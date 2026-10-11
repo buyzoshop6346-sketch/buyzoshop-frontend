@@ -14,6 +14,7 @@ import {
   MessageSquare,
   ChartNoAxesCombined,
   NotebookPen,
+  HomeIcon,
 } from 'lucide-react';
 import { BiSolidCategory } from 'react-icons/bi';
 import Image from 'next/image';
@@ -75,6 +76,7 @@ const AdminSidebar = ({
       icon: BiSolidCategory,
     },
     { name: 'Profile', href: '/admin/profile', icon: User },
+    { name: 'Home', href: '/', icon: HomeIcon },
   ];
 
   // const accountSubItems = [
@@ -116,13 +118,14 @@ const AdminSidebar = ({
   // ];
 
   const isActive = (href: string) => {
-    if (href === '/admin') {
+    if (!pathname) return false;
+
+    if (href === '/admin' || href === '/') {
       return pathname === href;
     }
 
-    return pathname?.startsWith(href);
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
-
   const handleMenuClick = () => {
     // others menu click Accounts submenu off
     setAccountsOpen(false);
