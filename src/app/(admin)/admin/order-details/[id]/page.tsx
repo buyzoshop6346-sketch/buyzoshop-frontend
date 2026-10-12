@@ -138,26 +138,21 @@ const OrderDetailsPage = async ({ params }: OrderDetailsPageProps) => {
 
           <div className="ml-auto max-w-md space-y-3">
             <SummaryRow
-              label="Subtotal"
-              value={`৳${getSubtotal(order).toFixed(2)}`}
-            />
-
-            <SummaryRow
               label="Shipping"
               value={`${
                 order.isInsideDhaka ? 'ঢাকার ভেতরে' : 'ঢাকার বাইরে'
               } (৳${Number(order.shippingFee).toFixed(2)})`}
             />
 
+            <SummaryRow label="Payment Method" value="Cash on Delivery" />
+
             <div className="border-t pt-3">
               <SummaryRow
-                label="Total"
-                value={`৳${Number(order.total).toFixed(2)}`}
+                label="Total Amount"
+                value={`৳${getSubtotal(order).toFixed(2)}`}
                 bold
               />
             </div>
-
-            <SummaryRow label="Payment Method" value="Cash on Delivery" />
           </div>
         </section>
       </div>

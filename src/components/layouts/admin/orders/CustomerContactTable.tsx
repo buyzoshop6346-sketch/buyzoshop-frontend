@@ -20,6 +20,7 @@ import { Order, OrdersMeta, OrderStatus } from '@/types/orders';
 import LoadingSpinner from '../shared/dashboard/LoadingSpinner';
 import OrderNoteModal from './OrderNoteModal';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CustomerContactTableProps {
   orders: Order[];
@@ -58,6 +59,7 @@ const CustomerContactTable = ({
   deletingOrderId = null,
   loading = false,
 }: CustomerContactTableProps) => {
+  console.log(orders);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
@@ -162,9 +164,16 @@ const CustomerContactTable = ({
 
                 const shippingFee = Number(order.shippingFee || 0);
 
-                const total = Number(order.total || 0);
+                // Calculate product subtotal using order item prices
+                const productSubtotal =
+                  order.items?.reduce((sum, item) => {
+                    return (
+                      sum + Number(item.price || 0) * Number(item.quantity || 0)
+                    );
+                  }, 0) ?? 0;
 
-                const productSubtotal = Math.max(total - shippingFee, 0);
+                // Calculate total amount
+                const total = productSubtotal + shippingFee;
 
                 return (
                   <tr
@@ -222,9 +231,11 @@ const CustomerContactTable = ({
 
                                 <div className="h-14 w-14 shrink-0 overflow-hidden rounded-sm border bg-muted">
                                   {image ? (
-                                    <img
+                                    <Image
                                       src={image}
                                       alt={item.name}
+                                      width={64}
+                                      height={64}
                                       className="h-full w-full object-cover"
                                     />
                                   ) : (
