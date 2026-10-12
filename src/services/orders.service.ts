@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getToken } from '@/utils/auth';
 
 import {
+  AddProductToOrderPayload,
   CheckoutPayload,
   GetAllOrdersParams,
   ISingleOrder,
@@ -105,6 +106,47 @@ export const updateOrder = async (
   const res = await axios.patch(`${BASE_URL}/orders/${orderId}`, payload, {
     headers: getAuthHeaders(),
   });
+
+  return res.data;
+};
+
+// ADD PRODUCT TO EXISTING ORDER
+
+export const addProductToOrder = async (
+  orderId: string,
+  payload: AddProductToOrderPayload,
+) => {
+  if (!orderId) {
+    throw new Error('Order ID is required');
+  }
+
+  const res = await axios.patch(
+    `${BASE_URL}/orders/${orderId}/items`,
+    payload,
+    {
+      headers: getAuthHeaders(),
+    },
+  );
+
+  return res.data;
+};
+
+// REMOVE PRODUCT FROM ORDER
+
+export const removeProductFromOrder = async (
+  orderId: string,
+  itemId: string,
+) => {
+  if (!orderId || !itemId) {
+    throw new Error('Order ID and Item ID are required');
+  }
+
+  const res = await axios.delete(
+    `${BASE_URL}/orders/${orderId}/items/${itemId}`,
+    {
+      headers: getAuthHeaders(),
+    },
+  );
 
   return res.data;
 };

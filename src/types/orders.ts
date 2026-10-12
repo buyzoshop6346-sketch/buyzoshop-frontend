@@ -135,3 +135,10 @@ export interface UpdateOrderPayload {
   note?: string | null;
   status?: OrderStatus;
 }
+
+export interface AddProductToOrderPayload {
+  productId: string;
+  quantity?: number;
+  size?: string | null;
+  color?: string | null;
+}
