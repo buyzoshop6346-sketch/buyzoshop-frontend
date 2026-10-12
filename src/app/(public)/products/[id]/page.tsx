@@ -123,11 +123,11 @@ export default async function ProductDetailsPage({
 
             {/* Description */}
 
-            {product.description && (
+            {/* {product.description && (
               <p className="text-sm text-gray-600 mt-3 leading-6">
                 {product.description}
               </p>
-            )}
+            )} */}
 
             {/* Rating */}
 
