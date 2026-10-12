@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MessageCircle, Bot } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { RiRobot2Fill } from 'react-icons/ri';
 import AIChatModal from './AIChatModal';
 import { BiSolidMessage } from 'react-icons/bi';
 

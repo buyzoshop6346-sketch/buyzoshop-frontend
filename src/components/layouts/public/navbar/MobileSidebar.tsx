@@ -109,7 +109,7 @@ const MobileNavbar = ({ user }: UserDropdownProps) => {
             </div>
 
             {/* CATEGORY SECTION */}
-            <div>
+            {/* <div>
               <h3 className="text-sm font-semibold text-gray-900 mb-3">
                 Categories
               </h3>
@@ -138,10 +138,10 @@ const MobileNavbar = ({ user }: UserDropdownProps) => {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
 
             {/* BRAND SECTION */}
-            <div>
+            {/* <div>
               <h3 className="text-sm font-semibold text-gray-900 mb-3">
                 Brands
               </h3>
@@ -157,10 +157,10 @@ const MobileNavbar = ({ user }: UserDropdownProps) => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* EXTRA LINKS */}
-            <div className="pt-4 border-t space-y-3">
+            {/* <div className="pt-4 border-t space-y-3">
               <Link
                 href="/products?verified=true"
                 onClick={closeMobileMenu}
@@ -187,7 +187,7 @@ const MobileNavbar = ({ user }: UserDropdownProps) => {
                 <FileText className="h-4 w-4" />
                 Tax exemption
               </Link>
-            </div>
+            </div> */}
           </div>
         </SheetContent>
       </Sheet>

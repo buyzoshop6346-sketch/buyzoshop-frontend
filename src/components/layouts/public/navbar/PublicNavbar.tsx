@@ -64,83 +64,36 @@ const PublicNavbar = ({ className }: { className?: string }) => {
               {/* mobile navbar  open + onOpenChange make this a controlled Sheet */}
               <MobileSidebar user={user}></MobileSidebar>
 
-              {/* mobile Logo */}
-              <Link
-                href="/"
-                className="md:hidden md:flex items-center shrink-0 group"
-              >
-                <div className="flex items-center gap-3.5">
+              {/* Mobile Logo */}
+              <Link href="/" className="flex md:hidden shrink-0 items-center">
+                <div className="flex items-center gap-2">
                   {/* Brand Icon */}
-                  <div
-                    className="
-        relative flex h-12 w-12 items-center justify-center
-        rounded-[14px]
-        
-       
-       
-        
-      "
-                  >
-                    {/* Orange Accent */}
-                    <span
-                      className="
-          absolute right-1.5 top-1.5
-          h-2 w-2 rounded-full
-          bg-[#FF6B35]
-          
-        "
-                    />
+                  <div className="relative flex h-9 w-9 shrink-0 items-center justify-center">
+                    <span className="absolute right-0.5 top-0.5 h-1.5 w-1.5 rounded-full bg-[#FF6B35]" />
 
-                    <FaShoppingCart
-                      className="
-          
-          text-[#0F1F5A]
-        "
-                    />
+                    <FaShoppingCart className="text-[25px] text-[#0F1F5A]" />
                   </div>
 
-                  {/* Brand Typography */}
-                  <div className="flex flex-col -ml-3 mt-1">
-                    {/* Main Brand */}
-                    <div className="flex items-center leading-[0.9]">
-                      <span
-                        className="
-            text-[20px] font-[800]
-            tracking-[-0.065em]
-            text-[#0F1F5A]
-          "
-                      >
+                  {/* Brand Text */}
+                  <div className="flex flex-col">
+                    <div className="flex items-center whitespace-nowrap leading-none">
+                      <span className="text-[19px] font-extrabold tracking-[-1px] text-[#0F1F5A]">
                         SHOP
                       </span>
 
-                      <span
-                        className="
-            ml-[5px]
-            text-[20px] font-[800]
-            tracking-[-0.065em]
-            text-[#FF6B35]
-          "
-                      >
+                      <span className="ml-1 text-[19px] font-extrabold tracking-[-1px] text-[#FF6B35]">
                         DEAL
                       </span>
                     </div>
 
-                    {/* MART */}
-                    <div className=" flex items-center gap-2">
-                      <span className="h-px w-6 bg-[#0F1F5A]/25" />
+                    <div className="mt-1 flex items-center justify-center gap-1.5">
+                      <span className="h-px w-4 bg-[#0F1F5A]/25" />
 
-                      <span
-                        className="
-            text-[8px] font-extrabold
-            uppercase
-            tracking-[0.48em]
-            text-[#0F1F5A]/65
-          "
-                      >
+                      <span className="text-[7px] font-bold uppercase tracking-[3px] text-[#0F1F5A]/65">
                         MART
                       </span>
 
-                      <span className="h-px w-6 bg-[#0F1F5A]/25" />
+                      <span className="h-px w-4 bg-[#0F1F5A]/25" />
                     </div>
                   </div>
                 </div>

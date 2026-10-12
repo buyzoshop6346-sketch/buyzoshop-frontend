@@ -36,6 +36,9 @@ const ProductPurchaseOptions = ({ product }: Props) => {
 
   return (
     <div className="mt-6 space-y-6">
+      {/* Actions */}
+      <ProductActions product={product} productId={product.id} />
+
       {/* Trust Features */}
       <div className="grid grid-cols-2 gap-3 rounded-md border border-gray-100 bg-gray-50 p-3">
         <div className="flex items-center gap-2">
@@ -165,8 +168,15 @@ const ProductPurchaseOptions = ({ product }: Props) => {
         </div>
       </div>
 
-      {/* Actions */}
-      <ProductActions product={product} productId={product.id} />
+      {/* description */}
+      {product.description && (
+        <div className="mt-4">
+          <h3 className="text-sm font-semibold text-gray-800">বিবরণ</h3>
+          <p className="text-sm text-gray-600 mt-2 leading-6">
+            {product.description}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
