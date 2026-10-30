@@ -62,7 +62,7 @@ const InvoicesMain = () => {
         page: currentPage,
         limit: ITEMS_PER_PAGE,
         search: search.trim(),
-        status: 'SHIPPED', // Only fetch shipped orders for invoices
+        status: 'COMPLETED', // Only fetch completed orders for invoices
       });
 
       const data = response?.data;

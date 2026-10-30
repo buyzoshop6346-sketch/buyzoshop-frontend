@@ -525,6 +525,7 @@ const CustomerContactTable = ({
                           <option value="CANCELLED">Cancelled</option>
 
                           <option value="PARTIAL">Partial</option>
+                          <option value="COMPLETED">Completed</option>
                         </select>
 
                         {isUpdating ? (
@@ -766,6 +767,7 @@ const getStatusClass = (status: OrderStatus) => {
     CANCELLED: 'bg-red-50 text-red-700 border-red-200',
 
     PARTIAL: 'bg-purple-50 text-purple-700 border-purple-200',
+    COMPLETED: 'bg-indigo-50 text-indigo-700 border-indigo-200',
   };
 
   return classes[status] || 'bg-muted text-foreground border-border';
